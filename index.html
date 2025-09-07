@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Generador de Códigos QR — Portafolio Manux</title>
+    <meta name="description" content="Convierte un enlace en un código QR y descárgalo al instante. Proyecto de portafolio de Enmanuel ‘Manux’ Monteverde." />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <header class="site-header">
+        <nav class="container">
+        <a class="brand" href="#" aria-label="Inicio">
+            <span aria-hidden="true">▩</span>
+            <span>Manux Studio</span>
+        </a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero" aria-labelledby="hero-title">
+        <h1 id="hero-title">Generador de códigos QR</h1>
+        <p>Escribe un enlace y obtén tu QR al instante</p>
+        </section>
+
+        <section class="card" aria-labelledby="form-title">
+        <h2 id="form-title">Crear un QR</h2>
+        <form id="qr-form" novalidate>
+            <div class="field">
+            <label for="qr-url">Enlace (URL)<span aria-hidden="true">*</span></label>
+            <small id="url-help" class="hint">Ejemplo: https://instagram.com/tuusuario</small>
+            <input
+                type="url"
+                id="qr-url"
+                name="qr-url"
+                placeholder="https://tu-enlace.com"
+                required
+                inputmode="url"
+                autocomplete="off"
+                aria-describedby="url-help url-error"
+            />
+            <p class="error" id="url-error" role="alert" aria-live="polite"></p>
+            </div>
+
+            <div class="grid">
+            <div class="field">
+                <label for="qr-size">Tamaño</label>
+                <select id="qr-size" name="qr-size">
+                <option value="128">128 px</option>
+                <option value="256" selected>256 px</option>
+                <option value="384">384 px</option>
+                <option value="512">512 px</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="qr-margin">Margen</label>
+                <input type="number" id="qr-margin" name="qr-margin" min="0" max="8" value="2" step="1" />
+            </div>
+
+            <div class="field">
+                <label for="qr-level">Corrección de error</label>
+                <select id="qr-level" name="qr-level">
+                <option value="L">Baja (L)</option>
+                <option value="M" selected>Media (M)</option>
+                <option value="Q">Alta (Q)</option>
+                <option value="H">Máxima (H)</option>
+                </select>
+            </div>
+            </div>
+
+            <div class="actions">
+            <button type="submit" id="btn-generate">Generar QR</button>
+            <button type="button" id="btn-download" disabled>Descargar PNG</button>
+            <button type="button" id="btn-clear" class="ghost">Limpiar</button>
+            </div>
+        </form>
+        </section>
+
+        <section class="card" aria-labelledby="preview-title">
+        <h2 id="preview-title">Vista previa</h2>
+        <div id="qr-preview" class="qr-preview" aria-live="polite" aria-busy="false"></div>
+        <p class="note">Tu QR aparecerá aquí cuando lo generes.</p>
+        </section>
+
+        <section class="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Preguntas frecuentes</h2>
+        <details>
+            <summary>¿Qué es la corrección de error?</summary>
+            <p>Es el nivel de redundancia del código. Niveles más altos permiten leer el QR aunque esté dañado o parcialmente cubierto, pero generan módulos más densos.</p>
+        </details>
+        </section>
+    </main>
+
+    <footer class="site-footer container">
+        <p>Hecho por Enmanuel Monteverde “Manux” — <a href="#" rel="author">Portafolio</a></p>
+        <noscript>Necesitas activar JavaScript para generar el código QR.</noscript>
+    </footer>
+
+    <!-- JS del proyecto: lo añadiremos en el siguiente paso -->
+    <script src="js/app.js" defer></script>
+</body>
+</html>
